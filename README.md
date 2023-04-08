@@ -42,3 +42,7 @@ $ git checkout -b nome-da-sua-branch
 <p align='center'>Para mais informações sobre o projeto, entre em contato comigo por meio das seguintes redes sociais:</p>
 
 <p align='center'>E-mail: carloshtbraga@gmail.com</p>
+
+<p align='center'>LinkedIn: https://www.linkedin.com/in/carloshtbraga</p></p>
+
+<p align='center'>Website: https://portf-lio-react-red.vercel.app</p>
