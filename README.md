@@ -3,7 +3,7 @@
   <a href="#contato">Contato</a>
 </p>
 <h1 align='center'>
-  <img src='https://github.com/carloshtbraga/BackEnd-Exercises-NodeJS/blob/main/1200px-Node.js_logo.svg.png?raw=true' width="400" heigth="400"/>
+  <img src='https://github.com/carloshtbraga/BackEnd-Exercises-NodeJS/blob/main/logo.png?raw=true' width="400" heigth="400"/>
   
 </h1>
 
