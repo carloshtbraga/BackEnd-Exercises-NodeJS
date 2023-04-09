@@ -1,0 +1,14 @@
+{
+  "name": "carlos-foda",
+  "version": "1.0.0",
+  "description": "Treino",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Carlin",
+  "license": "ISC",
+  "dependencies": {
+    "minimist": "^1.2.8"
+  }
+}
