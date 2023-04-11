@@ -38,7 +38,6 @@ app.get("/movies", async (req, res) => {
 });
 
 app.post("/movies", async (req, res) => {
-  const id = Number(req.params.id);
   const { movie, price } = req.body;
   if (!movie || !price) {
     return console.log("Esqueceu o filme ou o preço");
