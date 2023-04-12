@@ -10,6 +10,15 @@ const teams = [
   { id: 2, nome: 'Sociedade Esportiva Palmeiras', sigla: 'PAL' },
 ];
 
+const validateTeam = (req, res, next) => {
+  const {nome, sigla} = req.body;
+  if (nome && sigla) {
+    next(); // Chama o próximo middleware
+  } else {
+    res.status(400).json({message: "Sigla ou nome inválido"}); // Ou já responde avisando que deu errado
+  }
+};
+
 app.use(express.json());
 
 app.get('/teams', (req, res) => res.json(teams));
@@ -23,15 +32,6 @@ app.get('/teams/:id', (req, res) => {
     res.sendStatus(404);
   }
 });
-
-const validateTeam = (req, res, next) => {
-  const {nome, sigla} = req.body;
-  if (nome && sigla) {
-    next(); // Chama o próximo middleware
-  } else {
-    res.sendStatus(400); // Ou já responde avisando que deu errado
-  }
-};
 
 app.post('/teams', validateTeam, (req, res) => {
   const team = { id: nextId, ...req.body };
