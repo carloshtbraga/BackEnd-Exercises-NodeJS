@@ -1,28 +1,28 @@
-
 // src/app.js
-
-const express = require('express');
-require('express-async-errors');
-const morgan = require('morgan');
-// require no nosso novo router
-const teamsRouter = require('./routes/teamsRouter');
-
+const express = require("express");
 const app = express();
-app.use(morgan('dev'));
-app.use(express.static('/images'));
+require("express-async-errors")
+
+const PORT = 3000;
+
 app.use(express.json());
-// monta o router na rota /teams (1)
-app.use('/teams', teamsRouter);
+const path = require("path");
 
-app.use((err, _req, _res, next) => {
-  console.error(err.stack);
-  next(err);
+const fs = require("fs").promises;
+
+app.get("/teams", async (req, res, next) => {
+  const data = await fs.readFile(path.resolve(__dirname, "./teams.json"));
+  const teams = JSON.parse(data);
+  return res.status(200).json({ teams });
 });
 
-app.use((err, _req, res, _next) => {
-  res.status(500).json({ message: `Algo deu errado! Mensagem: ${err.message}` });
+app.use((error, req, res, next) => {
+  console.error(error.stack);
+  next(error)
 });
 
-module.exports = app;
+app.use((error, req, res, next) => {
+  return res.status(500).json({ Erro: "Infelizmente deu merda" });
+});
 
 app.listen(PORT, () => console.log(`Rodando na portaa: ${PORT}`));
