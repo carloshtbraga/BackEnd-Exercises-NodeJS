@@ -1,11 +1,13 @@
-// app.js
 const express = require("express");
-const validationName = require("./middlewares/validationName");
-const validationPrice = require("./middlewares/validationPrice");
-const validationDescription = require("./middlewares/validationDescription");
-const validationDescriptionValues = require("./middlewares/validationDescriptionValues")
-const generateToken = require('./utils/generateToken')
+const validationName = require("./middleware/validationName");
+const validationPrice = require("./middleware/validationPrice");
+const validationDescription = require("./middleware/validationDescription");
+const validationDescriptionValues = require("./middleware/validationDescriptionValues")
+const validationClient = require('./middlewares/validationClient')
+const generateToken = require("../utils/generateToken");
 
+
+const token = generateToken();
 const app = express();
 
 app.use(express.json());
@@ -21,8 +23,8 @@ app.post(
   }
 );
 
-app.post("/signup", (req,res)=> {
-
+app.post("/signup", validationClient, (req,res)=> {
+    return res.status(200).json( {token} );
 })
 
 module.exports = app;
