@@ -1,4 +1,4 @@
 // server.js
 const app = require('./app');
 
-app.listen(3001, () => console.log('server running on port 3001'));
+app.listen(3002, () => console.log('Rodando na 3002 - Exercício1'));
